@@ -1,7 +1,6 @@
 import { useId } from "react"
 
-import { Button } from "../@/components/ui/button"
-import { Checkbox } from "../@/components/ui/checkbox"
+import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
@@ -9,16 +8,16 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "../@/components/ui/dialog"
-import { Input } from "../@/components/ui/input"
-import { Label } from "../@/components/ui/label"
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
-export default function SignIn() {
+export default function Component() {
     const id = useId()
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline">Sign in</Button>
+                <Button variant="outline">Sign up</Button>
             </DialogTrigger>
             <DialogContent>
                 <div className="flex flex-col items-center gap-2">
@@ -38,15 +37,26 @@ export default function SignIn() {
                         </svg>
                     </div>
                     <DialogHeader>
-                        <DialogTitle className="sm:text-center">Welcome back</DialogTitle>
+                        <DialogTitle className="sm:text-center">
+                            Sign up Origin UI
+                        </DialogTitle>
                         <DialogDescription className="sm:text-center">
-                            Enter your credentials to login to your account.
+                            We just need a few details to get you started.
                         </DialogDescription>
                     </DialogHeader>
                 </div>
 
                 <form className="space-y-5">
                     <div className="space-y-4">
+                        <div className="*:not-first:mt-2">
+                            <Label htmlFor={`${id}-name`}>Full name</Label>
+                            <Input
+                                id={`${id}-name`}
+                                placeholder="Matt Welsh"
+                                type="text"
+                                required
+                            />
+                        </div>
                         <div className="*:not-first:mt-2">
                             <Label htmlFor={`${id}-email`}>Email</Label>
                             <Input
@@ -66,22 +76,8 @@ export default function SignIn() {
                             />
                         </div>
                     </div>
-                    <div className="flex justify-between gap-2">
-                        <div className="flex items-center gap-2">
-                            <Checkbox id={`${id}-remember`} />
-                            <Label
-                                htmlFor={`${id}-remember`}
-                                className="text-muted-foreground font-normal"
-                            >
-                                Remember me
-                            </Label>
-                        </div>
-                        <a className="text-sm underline hover:no-underline" href="#">
-                            Forgot password?
-                        </a>
-                    </div>
                     <Button type="button" className="w-full">
-                        Sign in
+                        Sign up
                     </Button>
                 </form>
 
@@ -89,7 +85,15 @@ export default function SignIn() {
                     <span className="text-muted-foreground text-xs">Or</span>
                 </div>
 
-                <Button variant="outline">Login with Google</Button>
+                <Button variant="outline">Continue with Google</Button>
+
+                <p className="text-muted-foreground text-center text-xs">
+                    By signing up you agree to our{" "}
+                    <a className="underline hover:no-underline" href="#">
+                        Terms
+                    </a>
+                    .
+                </p>
             </DialogContent>
         </Dialog>
     )

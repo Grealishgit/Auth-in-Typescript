@@ -16,10 +16,14 @@ import { Label } from "../@/components/ui/label.jsx"
 export default function Page() {
   const id = useId()
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex flex-col justify-center items-center min-h-screen">
+      <div className="flex items-center">
+        <h3 className="text-lg font-bold text-center"><span className="text-yellow-500">Welcome</span> Back!</h3>
+      </div>
+
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">Sign in</Button>
+          <Button variant="outline" className="cursor-pointer">Sign In</Button>
         </DialogTrigger>
         <DialogContent>
           <div className="flex flex-col items-center gap-2">
